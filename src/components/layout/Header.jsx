@@ -1,11 +1,14 @@
-import { MessageCircle, Bell, Search, ChevronDown, Menu } from "lucide-react";
+import { MessageCircle, Bell, Search, ChevronDown, Menu, X } from "lucide-react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-export default function Header({ toggleSidebar }) {
+export default function Header({ toggleSidebar, sidebarOpen }) {
   const [profileDropdown, setProfileDropdown] = useState(false);
 
   const toggleProfileDropdown = () => setProfileDropdown(!profileDropdown);
+
+  const location = useLocation()
+  const path = location.pathname;
 
   return (
     <header className="backdrop-blur-2xl shadow-lg border-b border-gray-200 sticky top-0 z-50">
@@ -13,12 +16,12 @@ export default function Header({ toggleSidebar }) {
         <div className="flex justify-between items-center h-16">
           {/* Logo and Mobile Menu */}
           <div className="flex items-center space-x-4">
-            <button
+            {path !== '/chat' && <button
               onClick={toggleSidebar}
               className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
             >
-              <Menu className="h-6 w-6 text-gray-600" />
-            </button>
+             {sidebarOpen ? <X className="h-6 w-6 text-gray-600" /> : <Menu className="h-6 w-6 text-gray-600" />}
+            </button>}
             <Link to='/' className="flex items-center space-x-2">
               <img src="/logo.png" className="h-10 w-10" alt="" />
               <div className="hidden sm:block">

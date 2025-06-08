@@ -332,7 +332,7 @@ const ChatPage = () => {
   return (
     <div className="h-screen bg-gray-100 flex flex-col">
       {/* Main Content */}
-        {(!selectedChat || !showMobileMenu) && <Header />}
+        {(selectedChat || !showMobileMenu) && <Header />}
       <div className="flex flex-1 overflow-hidden">
         {/* Sidebar - Hidden on mobile when chat is selected */}
         {(!selectedChat || !showMobileMenu) && (
