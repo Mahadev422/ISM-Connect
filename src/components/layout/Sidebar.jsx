@@ -100,25 +100,6 @@ const Sidebar = ({ sidebarOpen}) => {
             <span>Settings</span>
           </a>
         </nav>
-
-        {/* Campus Stats */}
-        <div className="mt-8 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-100">
-          <h4 className="font-semibold text-blue-900 mb-2">Campus Stats</h4>
-          <div className="space-y-2 text-sm">
-            <div className="flex justify-between">
-              <span className="text-gray-600">Online Students</span>
-              <span className="font-semibold text-blue-700">1,247</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-gray-600">Active Groups</span>
-              <span className="font-semibold text-blue-700">89</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-gray-600">Upcoming Events</span>
-              <span className="font-semibold text-blue-700">12</span>
-            </div>
-          </div>
-        </div>
       </div>
     </aside>
   );
