@@ -3,7 +3,7 @@ import { Calendar, Camera, GraduationCap, Mail, MapPin, Settings, Users } from '
 const About = ({profileData}) => {
   return (
      <div className="px-6 pb-6">
-            <div className="flex flex-col sm:flex-row sm:items-end sm:space-x-6 -mt-16 relative z-10">
+            <div className="flex flex-col sm:flex-row sm:items-end sm:space-x-6 -mt-16 relative">
               <div className="relative">
                 <img 
                   src={profileData.profileImage}
