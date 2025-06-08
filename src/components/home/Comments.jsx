@@ -1,8 +1,19 @@
 import { Send, Smile } from "lucide-react";
+import { useEffect, useRef } from "react";
 
 const Comments = ({dummyComments, post}) => {
+
+  const messagesEndRef = useRef(null);
+    const scrollToBottom = () => {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    };
+  
+    useEffect(() => {
+      scrollToBottom();
+    }, [dummyComments]);
+  
   return (
-    <div className="border-t border-gray-100 bg-gray-50">
+    <div className="border-t border-gray-100 h-75 scroll overflow-x-auto bg-gray-50">
       {/* Existing Comments */}
       {dummyComments[post.id] && (
         <div className="px-6 py-4 space-y-4">
@@ -43,11 +54,8 @@ const Comments = ({dummyComments, post}) => {
       )}
 
       {/* Add Comment */}
-      <div className="px-6 py-4 border-t border-gray-200">
+      <div className="p-4 border-t border-gray-200 sticky bottom-0 z-5 bg-white">
         <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center flex-shrink-0">
-            <span className="text-white font-semibold text-xs">YU</span>
-          </div>
           <div className="flex-1 flex items-center space-x-2">
             <input
               type="text"
